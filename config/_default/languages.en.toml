@@ -1,0 +1,25 @@
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "Khalil Chettaoui"
+
+[params]
+  displayName = "English"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+#  logo = "img/necromancer.png"
+  description = "Linux | Kubernetes | Go"
+
+[params.author]
+  name = "Khalil Chettaoui"
+  email = "khalil.che26@gmail.com"
+  image = "img/me.jpg"
+  headline = "Linux | Kubernetes | Go"
+  bio = "Linux | Kubernetes | Go"
+  links = [
+    { github = "https://github.com/necromancer26" },
+{mastodon = "https://infosec.exchange/@necromancer26"},
+{linkedin = "https://www.linkedin.com/in/khalil-ch"},
+{bluesky="https://bsky.app/profile/khalilchettaoui.space"}
+  ]
