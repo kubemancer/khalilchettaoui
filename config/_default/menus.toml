@@ -15,13 +15,13 @@
   pageRef = "docs"
   weight = 10
 
-[[main]]
-  name = "Shortcodes"
-  pageRef = "docs/shortcodes"
-  weight = 15
+#[[main]]
+#  name = "Shortcodes"
+#  pageRef = "docs/shortcodes"
+#  weight = 15
 
 [[main]]                      
-  name = "About me" 
+  name = "About" 
   pageRef = "about" 
   weight = 15      
 #
@@ -37,10 +37,10 @@
 #  pageRef = "guides"
 #  weight = 40
 
-[[main]]
-  name = "Users"
-  pageRef = "users"
-  weight = 90
+#[[main]]
+#  name = "Users"
+#  pageRef = "users"
+#  weight = 90
 
 #[[main]]
 #  name = "Merch"
