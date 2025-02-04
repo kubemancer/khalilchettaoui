@@ -74,7 +74,7 @@
    pageRef = "tags"
    weight = 10
 
- [[footer]]
-   name = "Authors"
-   pageRef = "authors"
-   weight = 20
+#  [[footer]]
+#    name = "Authors"
+#    pageRef = "authors"
+#    weight = 20
