@@ -4,7 +4,7 @@ weight: 2
 draft: false
 description: "Manually Installing Kubeadm with Containerd and CNI Plugins"
 tags: ["kubernetes", "kubeadm"]
-series: ["Documentation"]
+# series: ["Documentation"]
 series_order: 2
 ---
 
