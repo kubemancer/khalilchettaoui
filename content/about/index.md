@@ -10,7 +10,10 @@ cascade:
 
 ## Profile
 
-Passionate about DevOps and cloud-native development, I thrive on creating efficient and innovative solutions. My skills span cloud platforms like AWS, Azure, Digitalocean, and Openstack, alongside proficiency in frontend and backend technologies. While my journey began in Software Development, I adhere to a belief that transcends specialization in the IT sector. Consequently, I consistently strive to broaden my horizons by exploring interconnected domains like DevOps, System Administration... This approach enables me to cultivate a comprehensive understanding of modern computerized systems and infrastructure architectures. In addition to my development work, I have a background in psychology with a specialization in neuropsychology.
+IT Engineer specializing in Cloud Native technologies and Linux. My mixed background in
+Engineering and Psychology enables me to contribute a versatile and comprehensive skill set to
+projects, encompassing both communication and technical knowledge I’m passionate and have
+experience in both software development and IT infrastructure.
 
 ## Experience
 

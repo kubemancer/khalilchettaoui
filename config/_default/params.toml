@@ -22,7 +22,7 @@ disableTextInHeader = false
 # backgroundImageWidth = 1200
 
 #defaultBackgroundImage = "/img/helm.jpg"
-defaultBackgroundImage = "/img/background.png" 
+defaultBackgroundImage = "/img/helm.jpg" 
 defaultFeaturedImage = "/img/featured.svg"
 
 highlightCurrentMenuArea = true

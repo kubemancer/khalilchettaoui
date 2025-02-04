@@ -1,11 +1,11 @@
 ---
 title: "Installing Kubeadm with Containerd"
-weight: 1
+weight: 2
 draft: false
 description: "Manually Installing Kubeadm with Containerd and CNI Plugins"
-tags: ["new", "blog"]
+tags: ["kubernetes", "kubeadm"]
 series: ["Documentation"]
-series_order: 1
+series_order: 2
 ---
 
 ## Introduction
