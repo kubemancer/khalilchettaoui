@@ -17,6 +17,7 @@ replyByEmail = false
 mainSections = ["blog"]
 # robots = ""
 
+
 disableImageOptimization = false
 disableImageZoom = true
 disableTextInHeader = false
