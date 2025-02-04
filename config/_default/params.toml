@@ -14,14 +14,15 @@ enableCodeCopy = true
 
 replyByEmail = false
 
-mainSections = ["docs"]
+mainSections = ["blog"]
 # robots = ""
 
 disableImageOptimization = false
 disableTextInHeader = false
 # backgroundImageWidth = 1200
 
-defaultBackgroundImage = "/img/helm.jpg"
+#defaultBackgroundImage = "/img/helm.jpg"
+defaultBackgroundImage = "/img/background.png" 
 defaultFeaturedImage = "/img/featured.svg"
 
 highlightCurrentMenuArea = true
@@ -44,7 +45,7 @@ smartTOCHideUnfocusedChildren = false
   showRecent = false
   showRecentItems = 6
   showMoreLink = true
-  showMoreLinkDest = "docs"
+  showMoreLinkDest = "blog"
   cardView = true
   cardViewScreenWidth = false
   layoutBackgroundBlur = true # only used when layout equals background
@@ -76,7 +77,7 @@ smartTOCHideUnfocusedChildren = false
   showTaxonomies = true 
   showAuthorsBadges = true 
   showWordCount = false
-  sharingLinks = [ "linkedin", "twitter", "bluesky", "reddit", "whatsapp", "telegram", "pinterest", "facebook", "email"]
+  sharingLinks = [ "linkedin","bluesky", "reddit", "telegram", "pinterest", "email"]
   showZenMode = true
 
 [list]
