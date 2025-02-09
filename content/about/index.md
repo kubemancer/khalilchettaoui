@@ -8,18 +8,18 @@ cascade:
   invertPagination: true
 ---
 
-Hello, I'm Khalil. Who am I, you might wonder? I'm a human being who, five years ago, decided to drop out of my Psychology master's program to pursue an idea—the idea of becoming an IT Engineer.
+Hello, I'm Khalil. Who am I, you might ask? Just a human who, five years ago, made the crazy decision to drop out of a Psychology master's program to chase a dream—becoming an IT Engineer.
 
-Throughout my journey to earning a master's degree in IT engineering, I explored many fields. I started with front-end development during the COVID era, learning about web development and full-stack JavaScript. That led me to my first freelance position as a React developer with Idania, a Swedish food-tech startup.
+That decision set me on an incredible journey. I dived headfirst into tech, experimenting with different fields. My first love? Front-end development. During COVID, I started learning about web development and full-stack JavaScript, which led me to my first freelance gig as a React developer with Idania, a Swedish food-tech startup.
 
-After six months with Idania, I had another opportunity to work as a front-end developer with Aigot, an Italian startup focused on restaurant and pharmacy management, where I helped build a multi-tenancy eCommerce solution. But I always wanted to push myself further. That drive led me to transition into full-stack MERN development.
+After six months, another opportunity knocked. This time, it was Aigot, an Italian startup focused on restaurant and pharmacy management. There, I helped build a multi-tenancy eCommerce platform. But something inside me kept pushing for more. I wanted to understand not just how to build software, but everything happening behind the scenes.
 
-Curious about what happens behind the software, I delved deeper and discovered DevOps two years ago. That’s when I fell in love with infrastructure and the world of automation. I realized that what we build in DevOps is essentially a digital version of supply chain management. Seeing those real-life parallels helped me connect the dots between modern infrastructure and the entire software development lifecycle.
+That curiosity pulled me into DevOps two years ago, and that’s where everything clicked. I saw DevOps not just as a set of tools, but as a digital version of supply chain automation. It was about optimizing processes, making things flow seamlessly—just like in the real world. That realization changed everything for me.
 
-Knowing I had found my passion, I decided to specialize in Cloud Computing and IT Infrastructure at university. There, I learned the theoretical foundations—from virtualization and system administration to containerization and DevOps. It felt like learning the history of tech itself.
+Knowing I had found my path, I specialized in Cloud Computing and IT Infrastructure at university. I dove deep into virtualization, system administration, containerization, and DevOps—essentially learning the history and evolution of modern tech. And as the world moved toward cloud-native technologies, I knew Kubernetes was the next frontier. That’s why I pursued my CKA certification, the first of (hopefully) many Kubernetes certs to come.
 
-Recognizing the shift toward cloud-native technologies, I specialized in Kubernetes, beginning with the CKA certification—the first of many Kubernetes certifications I hope to earn. I'm also passionate about Linux and have been using Linux/Unix-based operating systems as my daily drivers for the past five years.
+Then there’s Linux—my everyday companion. For the past five years, Linux and Unix-based systems have been my go-to. They just make sense to me.
 
-As for Go, I fell in love with the language during my DevOps internship at Orbem GmbH. My manager convinced me to try it, and I was immediately drawn to its simplicity, performance, and efficiency. Learning Go also meant learning the language that Kubernetes is built with, making it even more valuable to me.
+And Go? That was a game changer. While working on platform development projects at Orbem GmbH, I got to use Go extensively. My manager, coming from a development background, was a big fan of it, and the more I worked with it, the more I saw why. Its simplicity, performance, and efficiency made it a perfect fit for building scalable systems. Plus, knowing that Kubernetes itself is built with Go made it even more exciting to learn.
 
-And that's a bit about me! I hope you found my journey into IT as fascinating as it has been for me.
+So yeah, that’s my journey so far. A mix of risk-taking, curiosity, and an obsession with figuring out how things work. And honestly? I wouldn't have it any other way.
