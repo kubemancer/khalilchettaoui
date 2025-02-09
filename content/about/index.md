@@ -3,56 +3,23 @@ title: "About"
 description: "Learn about me and my experience in IT"
 
 cascade:
-  showDate: false
-  showAuthor: false
+  showDate: true
+  showAuthor: true
   invertPagination: true
 ---
 
-## Profile
+Hello, I'm Khalil. Who am I, you might wonder? I'm a human being who, five years ago, decided to drop out of my Psychology master's program to pursue an idea—the idea of becoming an IT Engineer.
 
-IT Engineer specializing in Cloud Native technologies and Linux. My mixed background in
-Engineering and Psychology enables me to contribute a versatile and comprehensive skill set to
-projects, encompassing both communication and technical knowledge I’m passionate and have
-experience in both software development and IT infrastructure.
+Throughout my journey to earning a master's degree in IT engineering, I explored many fields. I started with front-end development during the COVID era, learning about web development and full-stack JavaScript. That led me to my first freelance position as a React developer with Idania, a Swedish food-tech startup.
 
-## Experience
+After six months with Idania, I had another opportunity to work as a front-end developer with Aigot, an Italian startup focused on restaurant and pharmacy management, where I helped build a multi-tenancy eCommerce solution. But I always wanted to push myself further. That drive led me to transition into full-stack MERN development.
 
-_DEVOPS ENGINEER INTERN, ORBEM; MUNICH GERMANY — MARCH 2024- DECEMBER 2024_
+Curious about what happens behind the software, I delved deeper and discovered DevOps two years ago. That’s when I fell in love with infrastructure and the world of automation. I realized that what we build in DevOps is essentially a digital version of supply chain management. Seeing those real-life parallels helped me connect the dots between modern infrastructure and the entire software development lifecycle.
 
-- Developed Terraform modules to automate the provisioning of cloud resources and set up the development environment needed for the software developers.
-- Collaborated in a team to develop and customize a Linux distribution tailored to Orbem’s specific requirements, including software integration, automation, and security configurations.
-- Implemented GitLab CI/CD pipelines ensuring the testing and release of Orbem’s operating system using Docker, Terraform, GCP bucket, Firestore, Gitlab CI and Bash scripting.
-- Orchestrated deployment of Helm Charts using Helm hooks ensuring an optimal synchronized application delivery to the Kubernetes clusters minimizing manual intervention.
-- Enhanced SSH secure authentication to the Linux machines using short lived SSH certificates.
+Knowing I had found my passion, I decided to specialize in Cloud Computing and IT Infrastructure at university. There, I learned the theoretical foundations—from virtualization and system administration to containerization and DevOps. It felt like learning the history of tech itself.
 
-_DEVOPS ENGINEER INTERN, AIGOT; PISA ITALY (REMOTE) — JUNE 2022-AUGUST 2022_
+Recognizing the shift toward cloud-native technologies, I specialized in Kubernetes, beginning with the CKA certification—the first of many Kubernetes certifications I hope to earn. I'm also passionate about Linux and have been using Linux/Unix-based operating systems as my daily drivers for the past five years.
 
-- Automated the installation of Kubernetes cluster using Kubespray and Ansible.
-- Created and optimized Dockerfiles making use of best practices like multi staging and disabling root user for enhanced security.
-  _FREELANCE FULLSTACK DEVELOPER, AIGOT; PISA ITALY (REMOTE) — FEBRUARY 2023-AUGUST 2023_
-- Developed API endpoints in backend Node.js and architecture of a solution for file management for a graphic editor using AWS S3.
-- Integrated of Stripe APIs to connect the e-commerce functionalities provided by Stripe with the SaaS for payment management, orders, and product creation.
-- Consumed backend APIs using axios and converted Figma UI design into React JSX code.
+As for Go, I fell in love with the language during my DevOps internship at Orbem GmbH. My manager convinced me to try it, and I was immediately drawn to its simplicity, performance, and efficiency. Learning Go also meant learning the language that Kubernetes is built with, making it even more valuable to me.
 
-_FREELANCE IT TECHNICAN, POLYDIOMS; PARIS FRANCE (REMOTE) — NOVEMBER 2022-JANUARY 2023_
-
-- Migrated the WordPress website server from Inmotion Hosting to DigitalOcean and from Apache to Nginx, optimizing its performance and reliability minimizing downtime.
-- Managed the domain name, efficiently configuring DNS records to redirect traffic from Google to DigitalOcean, encompassing NS, MX , and other relevant DNS records.
-- Developed an alternative application to Wordpress built with NextJS thus significantly optimizing the website speed with a notable improvement in UX experience.
-
-## Education
-
-- ESPRIT, Tunisia - IT Engineering, 2024
-- University of Tunis El Manar, Tunisia - Psychology, 2019
-
-## Skills
-
-- Programming | Scripting Languages: JS, TS, Go, Python, Java, C/C++, Bash.
-- Frameworks | Libraries: React, Vue, ExpressJS, NextJS, NestJS , SpringBoot, Tailwind, Redux.
-- Cloud | Server: Linux, Kubernetes, Docker, Terraform, GCP, DigitalOcean, Hetzner, OpenStack.
-
-## Certifications
-
-- CKA - Certified Kubernetes Administrator.
-
----
+And that's a bit about me! I hope you found my journey into IT as fascinating as it has been for me.
