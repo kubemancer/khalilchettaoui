@@ -8,8 +8,6 @@ tags: ["kubernetes", "kubeadm"]
 series_order: 2
 ---
 
-## Introduction
-
 Kubeadm is a tool that helps set up a Kubernetes cluster with best practices. While Kubernetes distributions often automate the installation, some users prefer a manual setup for better control and customization. This guide will walk you through manually installing kubeadm with containerd and CNI plugins.
 
 ## Prerequisites
@@ -111,7 +109,7 @@ For pod networking, install a CNI plugin such as Calico or Flannel. For example,
 kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 ```
 
-## Conclusion
+## Final Thoughts
 
 You have successfully installed Kubernetes manually using kubeadm with containerd as the container runtime and CNI plugins for networking. This setup provides better control over the Kubernetes installation and is ideal for advanced users who want to fine-tune their clusters.
 

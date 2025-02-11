@@ -8,8 +8,6 @@ tags: ["wireguard", "vps", "vpn"]
 series_order: 2
 ---
 
-## Introduction
-
 In an age where online privacy is increasingly under threat, Virtual Private Networks (VPNs) have become a popular tool for securing internet traffic. However, mainstream VPN providers often come with significant downsides: they require you to trust them with your data, they can be overpriced, and their privacy policies may not be as transparent as they claim. A better alternative? Hosting your own VPN using a Virtual Private Server (VPS) and WireGuard. Here’s why you should consider rolling your own VPN instead of relying on commercial services.
 
 ## 1. True Privacy: Stop Trusting Third-Party VPN Providers
@@ -58,7 +56,7 @@ Setting up WireGuard on a VPS is surprisingly straightforward. Here’s a high-l
 - Enable and Start the VPN – Use wg-quick up wg0 to start your VPN and configure it to run at startup.
   For a more detailed guide, you can check WireGuard’s official documentation or various tutorials available online.
 
-## Conclusion: A Badass, Cost-Effective, and Private Solution
+## A Badass, Cost-Effective, and Private Solution
 
 Hosting your own VPN is not just about saving money—it’s about taking control of your online privacy and security. By using WireGuard on a VPS, you eliminate the need to trust third-party providers, enjoy faster speeds, and gain valuable technical knowledge. Plus, let’s be honest—there’s something inherently badass about running your own secure network.
 
