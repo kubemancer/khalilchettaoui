@@ -57,17 +57,17 @@
 #  pageRef = "pagTest"
 #  weight = 1000
 
-[[main]]
-  identifier = "mastodon"
-  pre = "mastodon"
-  weight = 300
-  url = "https://infosec.exchange/@necromancer26"
+#[[main]]
+#  identifier = "mastodon"
+#  pre = "mastodon"
+#  weight = 300
+#  url = "https://infosec.exchange/@necromancer26"
 
-[[main]]
-  identifier = "github"
-  pre = "github"
-  url = "https://github.com/necromancer26"
-  weight = 400
+#[[main]]
+#  identifier = "github"
+#  pre = "github"
+#  url = "https://github.com/necromancer26"
+#  weight = 400
 
 
 # -- Footer Menu --
