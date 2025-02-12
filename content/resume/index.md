@@ -53,6 +53,8 @@ _FREELANCE IT TECHNICAN, POLYDIOMS; PARIS FRANCE (REMOTE) — NOVEMBER 2022-JANU
 
 ## Certifications
 
-- CKA - Certified Kubernetes Administrator.
+- CKA - Certified Kubernetes Administrator
+
+  <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="55ed3d81-b233-4e4f-bc66-d0a1bb6c3a0e" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 
 ---
