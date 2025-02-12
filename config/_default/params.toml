@@ -79,7 +79,7 @@ smartTOCHideUnfocusedChildren = false
   showTaxonomies = true 
   showAuthorsBadges = true 
   showWordCount = false
-  sharingLinks = [ "linkedin","bluesky", "reddit", "telegram", "pinterest", "email"]
+  sharingLinks = [ "linkedin","bluesky", "reddit", "telegram",  "email"]
   showZenMode = false
 
 [list]
