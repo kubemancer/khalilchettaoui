@@ -46,7 +46,7 @@ Why?\* Because Go passes a **copy** of `user` to `SetName()`, the original remai
 
 ---
 
-2️⃣ **Pointer Receiver (`func (s *Struct) Method()`)**
+### 2️⃣ **Pointer Receiver (`func (s *Struct) Method()`)**
 
 - Operates on a **pointer**, meaning it modifies the **original struct**.
 - More efficient for **large structs**, as it avoids copying.
@@ -74,7 +74,8 @@ Why?\* The method receives a **pointer** to `user`, so it directly modifies the 
 
 ---
 
-🤔 Can One Method Work for Both?
+### 🤔 Can One Method Work for Both?
+
 **Yes!** Methods with **pointer receivers** can be called on both **pointers and values**, thanks to **Go’s automatic pointer conversion**.
 
 #### Example
@@ -103,7 +104,7 @@ Key Insight:\* Pointer receivers are **more flexible**, but value receivers are 
 
 ---
 
-📝 When to Use Value vs. Pointer Receivers
+### 📝 When to Use Value vs. Pointer Receivers
 
 | **Use Case**                        | **Receiver Type** |
 | ----------------------------------- | ----------------- |
@@ -116,7 +117,8 @@ Key Insight:\* Pointer receivers are **more flexible**, but value receivers are 
 
 ---
 
-🚫 Interface Compatibility Pitfall
+### 🚫 Interface Compatibility Pitfall
+
 If you use **pointer receivers**, only **pointer instances** satisfy the interface. With **value receivers**, both **value and pointer instances** work.
 
 #### Example
