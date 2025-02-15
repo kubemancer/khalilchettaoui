@@ -1,6 +1,6 @@
 ---
 title: "Go lang method receivers value vs reference"
-weight: 1
+weight: 5
 draft: false
 description: "Understanding Method Receivers in Go: Value vs. Pointer Receivers"
 tags: ["go", "pointers"]
