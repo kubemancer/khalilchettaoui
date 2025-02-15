@@ -8,17 +8,17 @@ tags: ["go", "pointers"]
 series_order: 4
 ---
 
-Understanding Method Receivers in Go: Value vs. Pointer Receivers
+# Understanding Method Receivers in Go: Value vs. Pointer Receivers
 
 In the Go programming language, methods can have **receivers**, which determine how methods are called on types. A common question among Go developers is: _What’s the difference between value receivers and pointer receivers?_ and _Which one should I use?_ In this blog, we’ll break down the differences, use cases, and best practices for method receivers in Go.
 
 ---
 
-## 🚀 What Are Method Receivers in Go?
+## What Are Method Receivers in Go?
 
 Method receivers define how methods are associated with types in Go. You can declare methods with **value receivers** or **pointer receivers**, and your choice affects how methods interact with the underlying struct.
 
-### 1️⃣ **Value Receiver (`func (s Struct) Method()`)**
+### Value Receiver
 
 - Operates on a **copy** of the struct.
 - Changes made inside the method do **not** affect the original object.
@@ -46,7 +46,7 @@ Why?\* Because Go passes a **copy** of `user` to `SetName()`, the original remai
 
 ---
 
-### 2️⃣ **Pointer Receiver (`func (s *Struct) Method()`)**
+### Pointer Receiver
 
 - Operates on a **pointer**, meaning it modifies the **original struct**.
 - More efficient for **large structs**, as it avoids copying.
@@ -74,7 +74,7 @@ Why?\* The method receives a **pointer** to `user`, so it directly modifies the 
 
 ---
 
-### 🤔 Can One Method Work for Both?
+### Can One Method Work for Both?
 
 **Yes!** Methods with **pointer receivers** can be called on both **pointers and values**, thanks to **Go’s automatic pointer conversion**.
 
@@ -104,7 +104,7 @@ Key Insight:\* Pointer receivers are **more flexible**, but value receivers are 
 
 ---
 
-### 📝 When to Use Value vs. Pointer Receivers
+## When to Use Value vs. Pointer Receivers
 
 | **Use Case**                        | **Receiver Type** |
 | ----------------------------------- | ----------------- |
@@ -117,7 +117,7 @@ Key Insight:\* Pointer receivers are **more flexible**, but value receivers are 
 
 ---
 
-### 🚫 Interface Compatibility Pitfall
+### Interface Compatibility Pitfall
 
 If you use **pointer receivers**, only **pointer instances** satisfy the interface. With **value receivers**, both **value and pointer instances** work.
 
