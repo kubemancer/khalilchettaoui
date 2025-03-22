@@ -1,18 +1,9 @@
 ---
-title: "🔐 Setting Up Vault in Production on On-Premise K3s with TLS, Raft Storage & ESO"
+title: "Vault Setup on On-Premise K3s with TLS, Raft Storage & ESO"
 weight: 1
 draft: false
-description: "🔐 Setting Up Vault in Production on On-Premise K3s with TLS, Raft Storage & ESO"
-tags:
-  [
-    "kubernetes",
-    "vault",
-    "security",
-    "encryption",
-    "tls",
-    "secret-engine",
-    "kubernetes-security",
-  ]
+description: "Tutorial on setting up vault with k3s with tls encryption and external secret integration"
+tags: ["kubernetes", "vault", "secret-manager", "security", "encryption", "tls"]
 # series: ["Documentation"]
 series_order: 6
 ---
