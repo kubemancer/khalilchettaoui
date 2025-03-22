@@ -58,7 +58,7 @@ Traditionally, Vault Agent is used to inject secrets into workloads via a **side
 
 ## 1⃣ Add the Vault Helm Chart
 
-```bash
+```zsh
 helm repo add hashicorp https://helm.releases.hashicorp.com
 helm repo update
 ```
@@ -67,7 +67,7 @@ helm repo update
 
 ## 2⃣ Set Up Working Directory and Env Variables
 
-```bash
+```zsh
 mkdir ~/vault && cd ~/vault
 
 export VAULT_K8S_NAMESPACE="vault"
@@ -83,13 +83,13 @@ export WORKDIR=~/vault
 
 We’ll generate a private key, create a CSR config, and then issue a cert signed by Kubernetes itself.
 
-```bash
+```zsh
 openssl genrsa -out ${WORKDIR}/vault.key 2048
 ```
 
 ### CSR Configuration
 
-```bash
+```zsh
 cat > ${WORKDIR}/vault-csr.conf <<EOF
 [req]
 default_bits = 2048
@@ -116,13 +116,13 @@ EOF
 
 ### Create CSR
 
-```bash
+```zsh
 openssl req -new -key ${WORKDIR}/vault.key -out ${WORKDIR}/vault.csr -config ${WORKDIR}/vault-csr.conf
 ```
 
 ### Create and Approve CSR in Kubernetes
 
-```bash
+```zsh
 cat > ${WORKDIR}/csr.yaml <<EOF
 apiVersion: certificates.k8s.io/v1
 kind: CertificateSigningRequest
@@ -144,7 +144,7 @@ kubectl certificate approve vault.svc
 
 ### Save Certificate & CA
 
-```bash
+```zsh
 kubectl get csr vault.svc -o jsonpath='{.status.certificate}' | openssl base64 -d -A -out ${WORKDIR}/vault.crt
 
 kubectl config view --raw --minify --flatten \
@@ -157,7 +157,7 @@ kubectl config view --raw --minify --flatten \
 
 ### Create Namespace and Secret
 
-```bash
+```zsh
 kubectl create namespace $VAULT_K8S_NAMESPACE
 
 kubectl create secret generic vault-ha-tls -n $VAULT_K8S_NAMESPACE \
@@ -219,7 +219,7 @@ EOF
 
 ### Install Vault
 
-```bash
+```zsh
 helm install -n $VAULT_K8S_NAMESPACE $VAULT_HELM_RELEASE_NAME hashicorp/vault -f ${WORKDIR}/overrides.yaml
 kubectl get pods -n $VAULT_K8S_NAMESPACE
 ```
@@ -228,18 +228,18 @@ kubectl get pods -n $VAULT_K8S_NAMESPACE
 
 ## 5⃣ Initialize and Unseal Vault
 
-```bash
+```zsh
 kubectl exec -n $VAULT_K8S_NAMESPACE vault-0 -- vault operator init \
   -key-shares=5 -key-threshold=3 -format=json > ${WORKDIR}/cluster-keys.json
 ```
 
-```bash
+```zsh
 jq -r ".unseal_keys_b64[]" ${WORKDIR}/cluster-keys.json
 ```
 
 ### Unseal `vault-0`
 
-```bash
+```zsh
 VAULT_UNSEAL_KEY1=$(jq -r ".unseal_keys_b64[0]" ${WORKDIR}/cluster-keys.json)
 VAULT_UNSEAL_KEY2=$(jq -r ".unseal_keys_b64[1]" ${WORKDIR}/cluster-keys.json)
 VAULT_UNSEAL_KEY3=$(jq -r ".unseal_keys_b64[2]" ${WORKDIR}/cluster-keys.json)
@@ -251,7 +251,7 @@ kubectl exec -n $VAULT_K8S_NAMESPACE vault-0 -- vault operator unseal $VAULT_UNS
 
 ### Join and Unseal `vault-1`
 
-```bash
+```zsh
 kubectl exec -n $VAULT_K8S_NAMESPACE -it vault-1 -- /bin/sh
 
 vault operator raft join -address=https://vault-1.vault-internal:8200 \
@@ -269,7 +269,7 @@ kubectl exec -n $VAULT_K8S_NAMESPACE vault-1 -- vault operator unseal $VAULT_UNS
 
 ### Join and Unseal `vault-2`
 
-```bash
+```zsh
 kubectl exec -n $VAULT_K8S_NAMESPACE -it vault-2 -- /bin/sh
 
 vault operator raft join -address=https://vault-2.vault-internal:8200 \
@@ -287,7 +287,7 @@ kubectl exec -n $VAULT_K8S_NAMESPACE vault-2 -- vault operator unseal $VAULT_UNS
 
 ### Export Root Token & Login
 
-```bash
+```zsh
 export CLUSTER_ROOT_TOKEN=$(cat ${WORKDIR}/cluster-keys.json | jq -r ".root_token")
 
 kubectl exec -n $VAULT_K8S_NAMESPACE vault-0 -- vault login $CLUSTER_ROOT_TOKEN
@@ -298,7 +298,7 @@ kubectl exec -n $VAULT_K8S_NAMESPACE vault-0 -- vault operator raft list-peers
 
 ## 6⃣ Enable and Store a Test Secret
 
-```bash
+```zsh
 vault secrets enable -path=secret kv-v2
 vault kv put secret/app/db DB_USER="admin" DB_PASS="secret"
 vault kv get secret/app/db
@@ -308,11 +308,11 @@ vault kv get secret/app/db
 
 ## 7⃣ Port Forward and Access API
 
-```bash
+```zsh
 kubectl -n vault port-forward service/vault 8200:8200
 ```
 
-```bash
+```zsh
 curl --cacert $WORKDIR/vault.ca \
   --header "X-Vault-Token: $CLUSTER_ROOT_TOKEN" \
   https://127.0.0.1:8200/v1/secret/data/app/db | jq .data.data
@@ -324,7 +324,7 @@ curl --cacert $WORKDIR/vault.ca \
 
 ### Configure Vault Kubernetes Auth for ESO
 
-```bash
+```zsh
 vault write auth/kubernetes/config \
   kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443"
 
@@ -343,7 +343,7 @@ vault write auth/kubernetes/role/external-secrets-role \
 
 ### Install ESO
 
-```bash
+```zsh
 helm repo add external-secrets https://charts.external-secrets.io
 helm upgrade --install external-secrets \
   external-secrets/external-secrets -n external-secrets --create-namespace
@@ -351,7 +351,8 @@ helm upgrade --install external-secrets \
 
 ### Create `ClusterSecretStore`
 
-```yaml
+```zsh
+kubectl apply -f -<<EOF
 apiVersion: external-secrets.io/v1beta1
 kind: ClusterSecretStore
 metadata:
@@ -375,11 +376,13 @@ spec:
           serviceAccountRef:
             name: default
             namespace: default
+EOF
 ```
 
 ### Create `ExternalSecret`
 
-```yaml
+```zsh
+kubectl apply -f - <<EOF
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
@@ -400,8 +403,9 @@ spec:
         property: DB_USER
     - secretKey: DB_PASS
       remoteRef:
-        key: onedaydeco/db
+        key: app/db
         property: DB_PASS
+EOF
 ```
 
 ---
