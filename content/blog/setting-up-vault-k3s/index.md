@@ -329,7 +329,7 @@ vault write auth/kubernetes/config \
   kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443"
 
 vault policy write read-ondb - <<EOF
-path "secret/data/onedaydeco/db" {
+path "secret/data/app/db" {
   capabilities = ["read"]
 }
 EOF
