@@ -1,14 +1,13 @@
 ---
-title: "Vault Setup on On-Premise K3s with TLS, Raft Storage & ESO"
+title: "🔐 Vault Setup on On-Premise K3s with TLS, Raft Storage & ESO"
 weight: 1
 draft: false
 description: "Tutorial on setting up vault with k3s with tls encryption and external secret integration"
 tags: ["kubernetes", "vault", "secret-manager", "security", "encryption", "tls"]
-# series: ["Documentation"]
 series_order: 6
 ---
 
-# 🔐 Setting Up Vault in Production on On-Premise K3s with TLS, Raft Storage & ESO
+HashiCorp Vault is a powerful tool for securely accessing secrets, such as API keys, credentials, and certificates. It helps you centrally store, access, and manage secrets across environments. Vault supports multiple authentication backends, dynamic secret generation, fine-grained access control, and advanced audit capabilities—making it a go-to choice for security-conscious teams deploying cloud-native infrastructure.
 
 ## 🧠 Overview
 
