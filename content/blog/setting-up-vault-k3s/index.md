@@ -56,7 +56,13 @@ Traditionally, Vault Agent is used to inject secrets into workloads via a **side
 
 ---
 
-## 1⃣ Add the Vault Helm Chart
+## 🔐 Setting up Vault
+
+Let's first start by setting up vault into our cluster with Helm chart we will go through the generation of the TLS Certificates, helm values and unsealing the vault pod.
+
+---
+
+### Add the Vault Helm Chart
 
 ```zsh
 helm repo add hashicorp https://helm.releases.hashicorp.com
@@ -65,7 +71,7 @@ helm repo update
 
 ---
 
-## 2⃣ Set Up Working Directory and Env Variables
+### Set Up Working Directory and Env Variables
 
 ```zsh
 mkdir ~/vault && cd ~/vault
@@ -79,7 +85,7 @@ export WORKDIR=~/vault
 
 ---
 
-## 3⃣ Generate TLS Certificates with Kubernetes CSR
+### Generate TLS Certificates with Kubernetes CSR
 
 We’ll generate a private key, create a CSR config, and then issue a cert signed by Kubernetes itself.
 
@@ -87,7 +93,7 @@ We’ll generate a private key, create a CSR config, and then issue a cert signe
 openssl genrsa -out ${WORKDIR}/vault.key 2048
 ```
 
-### CSR Configuration
+#### CSR Configuration
 
 ```zsh
 cat > ${WORKDIR}/vault-csr.conf <<EOF
@@ -114,13 +120,13 @@ IP.1 = 127.0.0.1
 EOF
 ```
 
-### Create CSR
+#### Create CSR
 
 ```zsh
 openssl req -new -key ${WORKDIR}/vault.key -out ${WORKDIR}/vault.csr -config ${WORKDIR}/vault-csr.conf
 ```
 
-### Create and Approve CSR in Kubernetes
+#### Create and Approve CSR in Kubernetes
 
 ```zsh
 cat > ${WORKDIR}/csr.yaml <<EOF
@@ -142,7 +148,7 @@ kubectl create -f ${WORKDIR}/csr.yaml
 kubectl certificate approve vault.svc
 ```
 
-### Save Certificate & CA
+#### Save Certificate & CA
 
 ```zsh
 kubectl get csr vault.svc -o jsonpath='{.status.certificate}' | openssl base64 -d -A -out ${WORKDIR}/vault.crt
@@ -152,8 +158,6 @@ kubectl config view --raw --minify --flatten \
 ```
 
 ---
-
-## 4⃣ Deploy Vault with TLS and Raft HA
 
 ### Create Namespace and Secret
 
@@ -217,7 +221,7 @@ server:
 EOF
 ```
 
-### Install Vault
+### ⛴️ 📦 Install Vault with Helm
 
 ```zsh
 helm install -n $VAULT_K8S_NAMESPACE $VAULT_HELM_RELEASE_NAME hashicorp/vault -f ${WORKDIR}/overrides.yaml
@@ -226,7 +230,7 @@ kubectl get pods -n $VAULT_K8S_NAMESPACE
 
 ---
 
-## 5⃣ Initialize and Unseal Vault
+### Initialize and Unseal Vault
 
 ```zsh
 kubectl exec -n $VAULT_K8S_NAMESPACE vault-0 -- vault operator init \
@@ -237,7 +241,7 @@ kubectl exec -n $VAULT_K8S_NAMESPACE vault-0 -- vault operator init \
 jq -r ".unseal_keys_b64[]" ${WORKDIR}/cluster-keys.json
 ```
 
-### Unseal `vault-0`
+#### Unseal `vault-0`
 
 ```zsh
 VAULT_UNSEAL_KEY1=$(jq -r ".unseal_keys_b64[0]" ${WORKDIR}/cluster-keys.json)
@@ -249,7 +253,7 @@ kubectl exec -n $VAULT_K8S_NAMESPACE vault-0 -- vault operator unseal $VAULT_UNS
 kubectl exec -n $VAULT_K8S_NAMESPACE vault-0 -- vault operator unseal $VAULT_UNSEAL_KEY3
 ```
 
-### Join and Unseal `vault-1`
+#### Join and Unseal `vault-1`
 
 ```zsh
 kubectl exec -n $VAULT_K8S_NAMESPACE -it vault-1 -- /bin/sh
@@ -267,7 +271,7 @@ kubectl exec -n $VAULT_K8S_NAMESPACE vault-1 -- vault operator unseal $VAULT_UNS
 kubectl exec -n $VAULT_K8S_NAMESPACE vault-1 -- vault operator unseal $VAULT_UNSEAL_KEY3
 ```
 
-### Join and Unseal `vault-2`
+#### Join and Unseal `vault-2`
 
 ```zsh
 kubectl exec -n $VAULT_K8S_NAMESPACE -it vault-2 -- /bin/sh
@@ -285,7 +289,7 @@ kubectl exec -n $VAULT_K8S_NAMESPACE vault-2 -- vault operator unseal $VAULT_UNS
 kubectl exec -n $VAULT_K8S_NAMESPACE vault-2 -- vault operator unseal $VAULT_UNSEAL_KEY3
 ```
 
-### Export Root Token & Login
+#### Export Root Token & Login
 
 ```zsh
 export CLUSTER_ROOT_TOKEN=$(cat ${WORKDIR}/cluster-keys.json | jq -r ".root_token")
@@ -296,7 +300,7 @@ kubectl exec -n $VAULT_K8S_NAMESPACE vault-0 -- vault operator raft list-peers
 
 ---
 
-## 6⃣ Enable and Store a Test Secret
+### Enable and Store a Test Secret
 
 ```zsh
 vault secrets enable -path=secret kv-v2
@@ -306,7 +310,7 @@ vault kv get secret/app/db
 
 ---
 
-## 7⃣ Port Forward and Access API
+### Port Forward and Access API
 
 ```zsh
 kubectl -n vault port-forward service/vault 8200:8200
@@ -320,7 +324,7 @@ curl --cacert $WORKDIR/vault.ca \
 
 ---
 
-## 8⃣ External Secrets Operator (ESO) 🧪
+## Setting up External Secrets Operator (ESO) 🧪
 
 ### Configure Vault Kubernetes Auth for ESO
 
@@ -341,7 +345,7 @@ vault write auth/kubernetes/role/external-secrets-role \
   ttl=24h
 ```
 
-### Install ESO
+### ⛴️ 📦Install ESO with Helm
 
 ```zsh
 helm repo add external-secrets https://charts.external-secrets.io
@@ -410,7 +414,7 @@ EOF
 
 ---
 
-## 9⃣ Use Secrets in a Pod
+### Use Secrets in a Pod
 
 ```yaml
 env:
@@ -435,8 +439,6 @@ This guide sets you up with:
 - Highly Available Vault using Raft
 - TLS encryption with Kubernetes-issued certs
 - Secret injection using GitOps-friendly ESO
-
-> 🛡️ For real production use, **rotate root tokens**, set up **audit logs**, configure **namespaces**, and use **secure policies** and **monitoring**.
 
 ---
 
