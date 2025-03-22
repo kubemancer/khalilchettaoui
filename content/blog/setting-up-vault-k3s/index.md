@@ -440,4 +440,4 @@ This guide sets you up with:
 
 ---
 
-_Thanks for reading! If you found this helpful, feel free to share or leave a comment._
+_Thanks for reading! If you found this helpful, feel free to share._
