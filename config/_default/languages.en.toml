@@ -14,7 +14,7 @@ title = "Khalil Chettaoui"
 [params.author]
   name = "Khalil Chettaoui"
   email = "khalil.che26@gmail.com"
-  image = "img/me_mc.jpg"
+  image = "img/me_mc2.jpg"
   headline = "Linux | Kubernetes | Go"
   bio = "Hello 👋, I do Software Development and DevOps." 
   links = [
