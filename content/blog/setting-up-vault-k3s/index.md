@@ -18,6 +18,8 @@ In this tutorial, we’ll walk through deploying [HashiCorp Vault](https://www.v
 - Deploy Vault using **Helm**
 - Expose secrets using **External Secrets Operator (ESO)** instead of sidecars
 
+![Diagram](diagram.svg)
+
 ---
 
 ## ✅ Why TLS?
