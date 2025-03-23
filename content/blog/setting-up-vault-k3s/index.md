@@ -443,5 +443,3 @@ This guide sets you up with:
 - Secret injection using GitOps-friendly ESO
 
 ---
-
-_Thanks for reading! If you found this helpful, feel free to share._
