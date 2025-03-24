@@ -18,7 +18,7 @@ In this tutorial, we’ll walk through deploying [HashiCorp Vault](https://www.v
 - Deploy Vault using **Helm**
 - Expose secrets using **External Secrets Operator (ESO)** instead of sidecars
 
-![Diagram](k3s-vault-diagram.svg.svg)
+![Diagram](k3s-vault-diagram.svg)
 
 ---
 
