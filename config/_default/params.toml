@@ -23,7 +23,7 @@ disableImageZoom =  true
 disableTextInHeader = false
 backgroundImageWidth = 1200
 
-defaultBackgroundImage = "/img/helm.jpg" 
+defaultBackgroundImage = "/img/k8s-spinner.jpg" 
 defaultFeaturedImage = "/img/featured.svg"
 
 highlightCurrentMenuArea = false
