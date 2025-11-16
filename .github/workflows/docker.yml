@@ -9,7 +9,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  IMAGE_NAME: khalilchettaoui/site
+  IMAGE_NAME: khalilch06/site
 
 jobs:
   build:
