@@ -45,14 +45,13 @@ jobs:
             type=semver,pattern={{major}}
             type=sha
 
-      - name: Build Docker image with make
-        run: make build
-
-      - name: Tag and push Docker image
-        if: github.event_name != 'pull_request'
-        run: |
-          # Tag the image with the metadata tags
-          for tag in ${{ steps.meta.outputs.tags }}; do
-            docker tag khalil-site "$tag"
-            docker push "$tag"
-          done
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/arm64
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
